@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rixelic | Digital Branding & Creative Services</title>
+
+<meta name="description" content="Professional digital branding, graphic design, video editing, and business setup services to grow your brand online.">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" crossorigin="anonymous"
+    referrerpolicy="no-referrer">
+
+  <style>
+:root {
+      --white: #FFFFFF;
+      --navy: #001F3F;
+      --red: #E63946;
+      --green: #2ECC40;
+      --gray: #5A5A5A;
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body{
+      font-family:'Poppins', sans-serif; 
+      background: var(--white);
+      color: var(--navy);
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+   
+    .container {
+      width: min(1200px, 90%);
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    .navbar {
+      background: var(--navy);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: var(--shadow);
+    }
+
+    .nav-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+      position: relative;
+    }
+
+    .logo img {
+      height: 40px;
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: 1rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--white);
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--red);
+    }
+
+    .nav-center-right {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .nav-btn {
+      white-space: nowrap;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 4px;
+    }
+
+    .hamburger span {
+      width: 25px;
+      height: 3px;
+      background: var(--white);
+      transition: 0.3s;
+    }
+
+    .btn {
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1.2;
+    }
+
+    .btn-primary {
+      background-color: #E63946;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s;
+    }
+
+    .btn-primary:hover {
+      background-color: #C1121F;
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      border: 2px solid var(--white);
+      color: var(--white);
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .btn-secondary:hover {
+      background: var(--white);
+      color: var(--navy);
+    }
+
+    .hero {
+      padding: 4rem 0;
+      background: linear-gradient(to right, var(--navy) 0%, var(--navy) 60%, #6699CC 100%);
+      position: relative;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-text h1 {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      margin-bottom: 1rem;
+      color: var(--white);
+      line-height: 1.2;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .hero-text p {
+      color: var(--white);
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      margin-bottom: 2rem;
+      opacity: 0.95;
+    }
+
+    .hero-text .btn {
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 1rem;
+    }
+
+    .hero-image {
+      text-align: center;
+    }
+
+    .hero-image img {
+      width: 100%;
+      max-width: 500px;
+      height: auto;
+      display: block;
+    }
+
+    .brand-name {
+      font-weight: bold;
+      font-size: 2.5rem;
+      color: var(--navy);
+      margin: 0;
+      padding: 1rem 0;
+      letter-spacing: 2px;
+    }
+
+    @keyframes slideInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-50px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes slideInRight {
+      from {
+        opacity: 0;
+        transform: translateX(50px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    .hero-text {
+      animation: slideInLeft 1s ease-out;
+    }
+
+    .hero-image {
+      animation: slideInRight 1s ease-out 0.2s both;
+    }
+
+    .section {
+      padding: 5rem 0;
+      text-align: center;
+    }
+
+    .section h2 {
+      margin-bottom: 0.75rem;
+      font-size: clamp(1.75rem, 2vw, 2.2rem);
+    }
+
+    .about p,
+    .sub {
+      max-width: 600px;
+      margin: 0 auto 2rem;
+      color: var(--gray);
+      font-size: 1.1rem;
+      line-height: 1.7;
+    }
+
+    .bg-light {
+      background: #f8f9fa;
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .work-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.25rem;
+      margin-top: 3rem;
+    }
+
+    .card {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: var(--shadow);
+      transition: all 0.4s ease;
+      text-align: center;
+      height: 100%;
+    }
+
+    .card i {
+  color: #E63946; /* icon color */
+
+  background: rgba(230, 57, 70, 0.1); /* light red background */
+
+  width: 50px;
+  height: 50px;
+
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 20px;
+  margin: 0 auto 15px;
+}
+
+    .card:hover {
+      transform: translateY(-12px) scale(1.02);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+
+   
+    .card h3 {
+      color: var(--navy);
+      margin-bottom: 1rem;
+      line-height: 1.35;
+    }
+
+    .work-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 16px;
+      width: 100%;
+      padding: 10px;
+    }
+
+    .work-card img {
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+      object-fit: cover;
+      transition: transform 0.5s;
+      aspect-ratio: 16 / 10;
+    }
+
+    .work-card:hover img {
+      transform: scale(1.1);
+    }
+
+    .cta {
+      background: linear-gradient(135deg, var(--navy), #003366);
+      color: var(--white);
+    }
+
+    .cta p {
+      color: #ccc;
+      margin: 1rem 0 2rem;
+    }
+
+    .whatsapp-btn {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 60px;
+      height: 60px;
+      background: var(--green);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-size: 1.5rem;
+      box-shadow: 0 8px 20px rgba(46, 204, 64, 0.4);
+      z-index: 1000;
+      transition: all 0.3s;
+      animation: float 3s ease-in-out infinite;
+      text-decoration: none;
+    }
+
+    .whatsapp-btn:hover {
+      transform: scale(1.1);
+      background: #27ae60;
+    }
+
+    /* Responsive */
+    @media(max-width:900px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 1024px) {
+      .service-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 768px){
+      .hamburger {
+      display: flex !important;
+      } 
+
+      .hero-actions {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 10px;
+      }
+
+      .hero-actions .btn {
+        width: 48% !important;
+        display: inline-block !important;  /* 👈 MAIN FIX */
+        text-align: center;
+      }
+
+      .nav-center-right {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        width: 100%;
+      }
+
+/* ✅ buttons side by side */
+      .hero-btns {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 10px;
+      }
+
+/* ✅ clean button size */
+               
+    @media (max-width: 768px){
+
+      .hero-actions {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 10px;
+      }
+
+      .hero-actions .btn {
+        width: 48%;
+        padding: 12px 10px;
+        font-size: 14px;
+        margin: 0;
+      }
+
+    }
+      .hero-text h1 {
+       line-height: 1.2;
+    }  
+
+    .hero-image {
+        margin-top: 25px;
+    }
+      .nav-menu {
+        display: none;
+        position: static;
+        background: var(--navy);
+        flex-direction: column;
+        padding: 1rem;
+        box-shadow: var(--shadow);
+        width: 100%;
+        gap: 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.12);
+      }
+
+      .nav-menu a {
+        display: block;
+        width: 100%;
+        padding: 0.65rem 0;
+        margin: 0;
+        text-align: left;
+        color: var(--white);
+      }
+
+      .nav-btn {
+        display: none;
+      }
+
+      .nav-menu.active {
+        display: flex;
+      }
+
+      .service-grid {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+      }
+
+      .work-container {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        margin-top: 2rem;
+      }
+
+      .section {
+        padding: 3rem 0;
+      }
+
+      .hero {
+        padding: 3rem 0;
+      }
+
+      .hero-actions {
+        width: 100%;
+        justify-content: flex-start;
+      }
+
+      .hero-actions .btn {
+        width: 100%;
+      }
+
+      .whatsapp-btn {
+        bottom: 1rem;
+        right: 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-text h1 {
+        font-size: 2rem;
+      }
+
+      .container {
+        width: min(1200px, 94%);
+        padding: 0 0.5rem;
+      }
+    }
+       /* 🔥 FINAL POLISH */
+
+      .hero-actions {
+        margin-top: 15px;
+      }
+
+    .hero-text p {
+      margin-bottom: 20px;
+    }
+
+    .hero-image {
+      margin-top: 20px;
+    }
+
+    .whatsapp-btn {
+      bottom: 20px;
+      right: 20px;
+    }
+
+    /* hover effect */
+   .btn:hover {
+      transform: translateY(-2px);
+      transition: 0.3s;
+   }
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="navbar">
+    <div class="container">
+      <div class="nav-flex">
+        <div class="logo">
+          <img src="Assets/images/logo.png" alt="Rixelic Logo">
+        </div>
+        <div class="nav-center-right">
+          <nav class="nav-menu" id="nav-menu">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#work">Work</a>
+            <a href="#contact">Contact</a>
+          </nav>
+          <a href="#contact" class="btn btn-primary nav-btn">Contact Me</a>
+        </div>
+        <div class="hamburger" onclick="toggleMenu()">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section id="home" class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-text">
+          <h1>Build Digital Brands That Drive Growth</h1>
+          <p>Strategy, design, and marketing solutions to scale your business online.</p>
+          <div class="hero-actions">
+            <a href="#contact" class="btn btn-primary">Contact Me</a>
+            <a href="#work" class="btn btn-secondary">View Work</a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <img src="Assets/images/herotiny.png" alt="Digital Brand Building Hero Image">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="about section">
+    <div class="container">
+      <h2>About Me</h2>
+      <p>I&#39;m a Branding &amp; Creative Specialist focused on building impactful digital brands.</p>
+    </div>
+  </section>
+
+  <section id="services" class="services section bg-light">
+    <div class="container">
+      <h2>What I Offer</h2>
+      <p class="sub">End-to-end creative solutions designed to build and grow your brand.</p>
+        <div class="service-grid">
+        <div class="card">
+          <i class="fas fa-chart-line"></i>
+          <h3>Brand Strategy &amp; Identity</h3>
+          <p>Building strong brand foundations and visual identity systems.</p>
+        </div>
+        <div class="card">
+          <i class="fas fa-share-alt"></i>
+          <h3>Social Media &amp; Marketing</h3>
+          <p>Growth-focused content and marketing strategies.</p>
+        </div>
+        <div class="card">
+          <i class="fas fa-video"></i>
+          <h3>Video &amp; Motion Content</h3>
+          <p>High-quality motion graphics and storytelling.</p>
+        </div>
+        <div class="card">
+          <i class="fas fa-globe"></i>
+          <h3>Web &amp; UI/UX Design</h3>
+          <p>Modern, conversion-focused digital experiences.</p>
+        </div>
+        <div class="card">
+          <i class="fas fa-paint-brush"></i>
+          <h3>Creative Design</h3>
+          <p>High-quality creative visuals and branding.</p>
+        </div>
+        <div class="card">
+          <i class="fas fa-briefcase"></i>
+          <h3>Business Setup</h3>
+          <p>Complete business and startup solutions.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="work" class="work section">
+    <div class="container">
+      <h2>Featured Case Studies</h2>
+      <p class="sub">Real projects delivering measurable business results.</p>
+      <div class="work-container">
+        <div class="work-card">
+          <img src="Assets/images/branding.png" alt="Brand Identity Design Project">
+        </div>
+        <div class="work-card">
+          <img src="Assets/images/social.png" alt="Social Media Marketing Project">
+        </div>
+        <div class="work-card">
+          <img src="Assets/images/video.png" alt="Video Editing Project">
+        </div>
+        <div class="work-card">
+          <img src="Assets/images/web.png" alt="Website Design Project">
+        </div>
+        <div class="work-card">
+          <img src="Assets/images/web.png" alt="Web Project">
+        </div>
+        <div class="work-card">
+          <img src="Assets/images/branding.png" alt="Branding Project">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="cta section">
+    <div class="container">
+      <h2>Let&#39;s Build Something Powerful Together</h2>
+      <p>Available for freelance and business projects.</p>
+      <a href="#contact" class="btn btn-primary">Contact Me</a>
+    </div>
+  </section>
+
+  <a href="https://wa.me/918951692195?text=Hi! I found your portfolio and want to discuss a project."
+    class="whatsapp-btn" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" crossorigin="anonymous"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: true
+    });
+
+    const navMenu = document.getElementById('nav-menu');
+
+    function toggleMenu() {
+      navMenu.classList.toggle('active');
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        if (navMenu.classList.contains('active')) {
+          navMenu.classList.remove('active');
+        }
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    document.addEventListener('click', (e) => {
+      const clickedInsideNav = e.target.closest('.nav-center-right') || e.target.closest('.hamburger');
+      if (!clickedInsideNav && navMenu.classList.contains('active')) {
+        navMenu.classList.remove('active');
+      }
+    });
+  </script>
+
+</body>
+
+</html>
